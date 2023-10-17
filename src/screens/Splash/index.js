@@ -5,7 +5,7 @@ import styles from "./styles";
 import { ImageBackground } from "react-native";
 import { Image } from "react-native";
 
-const Splash = () => {
+const Splash = ({ navigation }) => {
   return (
     <ImageBackground
       style={styles.background}
@@ -21,7 +21,9 @@ const Splash = () => {
         <Text style={styles.bigTitle}>Get</Text>
         <Text style={styles.bigTitle}>Cooking</Text>
         <Text style={styles.subTitle}>Simple way to find Tasty Recipe</Text>
-        <Button>Start Cooking</Button>
+        <Button onPress={() => navigation.navigate("Home")}>
+          Start Cooking
+        </Button>
       </View>
     </ImageBackground>
   );
