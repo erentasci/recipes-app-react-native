@@ -9,8 +9,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     padding: 10,
     width: width * 0.7,
-    marginBottom: 32,
-    marginTop: 46,
+    marginBottom: 26,
+    marginTop: 40,
     marginRight: 16,
 
     // iOS
@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 50,
-    marginTop: -40,
+    marginTop: -30,
+    marginRight: -2,
   },
 });
 

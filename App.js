@@ -1,12 +1,15 @@
 import "react-native-gesture-handler";
+import React, { useEffect } from "react";
 import Splash from "./src/screens/Splash";
 import Home from "./src/screens/Home";
 import Search from "./src/screens/Search";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Image, Pressable, StyleSheet } from "react-native";
+import { getRecipes } from "./src/http/index";
 
 const Stack = createStackNavigator();
+export const RecipesContext = React.createContext();
 
 const BackButton = (props) => {
   return (
@@ -25,38 +28,56 @@ const Theme = {
 };
 
 export default function App() {
+  const [recipes, setRecipes] = React.useState([]);
+
+  const handleRecipesFetch = async () => {
+    try {
+      const recipes = await getRecipes();
+      // console.log("Recipes: ", recipes);
+      setRecipes(recipes?.data?.results);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+
+  useEffect(() => {
+    handleRecipesFetch();
+  }, []);
+
   return (
-    <NavigationContainer theme={Theme}>
-      <Stack.Navigator
-        screenOptions={{
-          headerTitleAlign: "center",
-          headerShadowVisible: false,
-        }}>
-        <Stack.Screen
-          name={"Splash"}
-          component={Splash}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name={"Home"}
-          component={Home}
-          options={{
-            headerLeft: null,
-            gestureEnabled: false,
-          }}
-        />
-        <Stack.Screen
-          name={"Search"}
-          component={Search}
-          style
-          options={{
-            headerLeft: (props) => <BackButton {...props} />,
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <RecipesContext.Provider value={{ recipes, setRecipes }}>
+      <NavigationContainer theme={Theme}>
+        <Stack.Navigator
+          screenOptions={{
+            headerTitleAlign: "center",
+            headerShadowVisible: false,
+          }}>
+          <Stack.Screen
+            name={"Splash"}
+            component={Splash}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name={"Home"}
+            component={Home}
+            options={{
+              headerLeft: null,
+              gestureEnabled: false,
+            }}
+          />
+          <Stack.Screen
+            name={"Search"}
+            component={Search}
+            style
+            options={{
+              headerLeft: (props) => <BackButton {...props} />,
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </RecipesContext.Provider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View } from "react-native";
 import Button from "../../components/Button";
 import styles from "./styles";
@@ -6,6 +6,7 @@ import { ImageBackground } from "react-native";
 import { Image } from "react-native";
 
 const Splash = ({ navigation }) => {
+
   return (
     <ImageBackground
       style={styles.background}

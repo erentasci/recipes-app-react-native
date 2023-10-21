@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     marginRight: 8,
-    marginBottom: 14,
+    marginBottom: 12,
   },
   selectedItemContainer: {
     backgroundColor: colors.green,
