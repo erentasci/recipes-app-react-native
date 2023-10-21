@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   label: {
     color: colors.lightGrey2,
     fontSize: 11,
-    marginTop: 8,
+    marginTop: "auto",
     marginBottom: 4,
   },
   value: {

@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
     height: 25,
     borderRadius: 20,
     marginRight: 8,
+    backgroundColor: "gray",
   },
   timerIcon: {
     width: 17,
