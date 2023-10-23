@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Splash from "./src/screens/Splash";
 import Home from "./src/screens/Home";
 import Search from "./src/screens/Search";
+import RecipeDetails from "./src/screens/RecipeDetails";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Image, Pressable, StyleSheet } from "react-native";
@@ -84,6 +85,14 @@ export default function App() {
               style
               options={{
                 headerLeft: (props) => <BackButton {...props} />,
+              }}
+            />
+            <Stack.Screen
+              name="RecipeDetails"
+              component={RecipeDetails}
+              options={{
+                headerLeft: (props) => <BackButton {...props} />,
+                title: "",
               }}
             />
           </Stack.Navigator>
