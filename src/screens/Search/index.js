@@ -6,7 +6,7 @@ import Input from "../../components/Input";
 const Search = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Input />
+      <Input autoFocus style={styles.input} />
     </SafeAreaView>
   );
 };

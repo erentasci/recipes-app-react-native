@@ -2,7 +2,14 @@ import React from "react";
 import { TextInput, Image, View, Pressable } from "react-native";
 import styles from "./styles";
 
-const Input = ({ placeholder, showSearchIcon, style, pressable, onPress }) => {
+const Input = ({
+  placeholder,
+  showSearchIcon,
+  style,
+  pressable,
+  onPress,
+  ...props
+}) => {
   const renderInput = () => {
     return (
       <View style={(styles.container, style)}>
@@ -13,6 +20,7 @@ const Input = ({ placeholder, showSearchIcon, style, pressable, onPress }) => {
           />
         ) : null}
         <TextInput
+            {...props}
           editable={!pressable}
           placeholderTextColor={styles.text}
           style={styles.input}

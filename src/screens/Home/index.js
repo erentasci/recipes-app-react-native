@@ -11,7 +11,7 @@ import { HealthyRecipesContext } from "../../../App";
 
 const Home = ({ navigation }) => {
   const [tags, setTags] = React.useState([]);
-  const [selectedTag, setSelectedTag] = React.useState(null);
+  const [selectedTag, setSelectedTag] = React.useState("north_american");
   const { recipes } = React.useContext(RecipesContext);
   const { healthyRecipes } = React.useContext(HealthyRecipesContext);
 
